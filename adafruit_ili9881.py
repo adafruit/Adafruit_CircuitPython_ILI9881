@@ -32,15 +32,15 @@ Implementation Notes
 """
 
 import time
- 
+
 import digitalio
 import mipidsi
 from adafruit_bus_device.i2c_device import I2CDevice
 from micropython import const
- 
+
 try:
     from typing import Any
- 
+
     import busio
     from microcontroller import Pin
 except ImportError:
@@ -144,7 +144,7 @@ _RPI_5INCH_TIMING = {
     "vsync_front_porch": 100,
     "pixel_clock_frequency": 83_333_000,
 }
- 
+
 # Low 4 bits of the ID register
 # panel size in inches, initialization sequence and timing
 _PANELS_BY_ID = {
@@ -153,6 +153,7 @@ _PANELS_BY_ID = {
     0x08: (5, _INIT_RPI_5INCH, _RPI_5INCH_TIMING),  # older 5-inch
     0x09: (5, _INIT_RPI_5INCH, _RPI_5INCH_TIMING),
 }
+
 
 class ILI9881(mipidsi.Display):
     """ILI9881C MIPI DSI display panel.
@@ -248,13 +249,13 @@ class ILI9881(mipidsi.Display):
 
 class RaspberryPiTouchDisplay2(ILI9881):
     """Raspberry Pi Touch Display 2, 5-inch or 7-inch, detected automatically.
- 
+
     The display's controller (at I2C address 0x45) powers and resets the
     panel and the touch controller and drives the backlight. This resets
     both, releases them, then initializes the panel. Use it with
     `framebufferio.FramebufferDisplay`: ``rotation=90`` gives 1280 x 720
     landscape.
- 
+
     :param ~mipidsi.Bus bus: DSI bus connected to the display. Create it with
         ``minimum_frequency=RaspberryPiTouchDisplay2.MINIMUM_BUS_FREQUENCY``
         and ``num_lanes=2``.

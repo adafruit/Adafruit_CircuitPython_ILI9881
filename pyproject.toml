@@ -28,7 +28,7 @@ keywords = [
     "mipi,",
     "dsi",
 ]
-license = "MIT"
+license = "GPL-2.0-only"
 classifiers = [
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries",

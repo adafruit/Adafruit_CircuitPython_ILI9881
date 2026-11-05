@@ -95,11 +95,11 @@ Usage Example
     import displayio
     import framebufferio
     import mipidsi
-    
+
     import adafruit_ili9881
-    
+
     displayio.release_displays()
-    
+
     bus = mipidsi.Bus(
         minimum_frequency=adafruit_ili9881.RaspberryPiTouchDisplay2.MINIMUM_BUS_FREQUENCY,
         num_lanes=2,

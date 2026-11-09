@@ -120,8 +120,7 @@ _CTP_RESET_BIT = const(0x02)
 _PWM_BL_ENABLE = const(0x80)
 _MAX_BRIGHTNESS = const(31)
 
-
-_RPI_7INCH_TIMING = {
+_RPI_TIMING = {
     "width": 720,
     "height": 1280,
     "hsync_pulse_width": 33,
@@ -133,25 +132,12 @@ _RPI_7INCH_TIMING = {
     "pixel_clock_frequency": 83_330_000,
 }
 
-_RPI_5INCH_TIMING = {
-    "width": 720,
-    "height": 1280,
-    "hsync_pulse_width": 20,
-    "hsync_back_porch": 87,
-    "hsync_front_porch": 110,
-    "vsync_pulse_width": 2,
-    "vsync_back_porch": 100,
-    "vsync_front_porch": 100,
-    "pixel_clock_frequency": 83_333_000,
-}
-
-# Low 4 bits of the ID register
 # panel size in inches, initialization sequence and timing
 _PANELS_BY_ID = {
-    0x01: (7, _INIT_RPI_7INCH, _RPI_7INCH_TIMING),
-    0x04: (7, _INIT_RPI_7INCH, _RPI_7INCH_TIMING),  # older 7-inch
-    0x08: (5, _INIT_RPI_5INCH, _RPI_5INCH_TIMING),  # older 5-inch
-    0x09: (5, _INIT_RPI_5INCH, _RPI_5INCH_TIMING),
+    0x01: (7, _INIT_RPI_7INCH, _RPI_TIMING),
+    0x04: (7, _INIT_RPI_7INCH, _RPI_TIMING),  # older 7-inch
+    0x08: (5, _INIT_RPI_5INCH, _RPI_TIMING),  # older 5-inch
+    0x09: (5, _INIT_RPI_5INCH, _RPI_TIMING),
 }
 
 
